@@ -1,19 +1,22 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-scroll';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const navVariants = {
-    hidden: { opacity: 0, y: -20 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { duration: 0.5 }
+  // Prevent scrolling when menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
     }
-  };
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
 
   const menuItems = [
     { title: 'Home', to: 'home' },
@@ -23,21 +26,29 @@ const Navbar = () => {
     { title: 'Contact', to: 'contact' }
   ];
 
+  const handleLinkClick = () => {
+    setIsOpen(false);
+  };
+
   return (
     <motion.nav 
       className="navbar"
-      initial="hidden"
-      animate="visible"
-      variants={navVariants}
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
     >
-      <motion.div 
-        className="logo"
-        whileHover={{ scale: 1.1 }}
-      >
-        <Link to="home" spy={true} smooth={true} offset={-70} duration={500}>
+      <div className="logo">
+        <Link 
+          to="home" 
+          spy={true} 
+          smooth={true} 
+          offset={-70} 
+          duration={500}
+          onClick={handleLinkClick}
+        >
           Sumit.dev
         </Link>
-      </motion.div>
+      </div>
 
       <div className={`nav-links ${isOpen ? 'active' : ''}`}>
         {menuItems.map((item) => (
@@ -52,7 +63,7 @@ const Navbar = () => {
               smooth={true}
               offset={-70}
               duration={500}
-              onClick={() => setIsOpen(false)}
+              onClick={handleLinkClick}
             >
               {item.title}
             </Link>
@@ -60,14 +71,14 @@ const Navbar = () => {
         ))}
       </div>
 
-      <motion.div 
-        className="hamburger" 
+      <button 
+        className="hamburger"
         onClick={() => setIsOpen(!isOpen)}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
+        aria-label={isOpen ? 'Close menu' : 'Open menu'}
+        aria-expanded={isOpen}
       >
         {isOpen ? <FaTimes /> : <FaBars />}
-      </motion.div>
+      </button>
     </motion.nav>
   );
 };
