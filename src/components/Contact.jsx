@@ -85,7 +85,7 @@ const Contact = () => {
           </div>
           <div className="social-links">
             <motion.a
-              href="https://linkedin.com"
+              href="www.linkedin.com/in/sumit-tiwari-710362252"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ y: -5 }}
@@ -93,7 +93,7 @@ const Contact = () => {
               <FaLinkedin />
             </motion.a>
             <motion.a
-              href="https://github.com"
+              href="https://github.com/tsumit02"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ y: -5 }}

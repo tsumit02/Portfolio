@@ -23,7 +23,8 @@ const Navbar = () => {
     { title: 'Projects', to: 'projects' },
     { title: 'Skills', to: 'skills' },
     { title: 'About', to: 'about' },
-    { title: 'Contact', to: 'contact' }
+    { title: 'Contact', to: 'contact' },
+    { title: 'Testimonials', to: 'testimonials' }
   ];
 
   const handleLinkClick = () => {

@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-scroll';
-import { FaReact, FaHtml5, FaCss3Alt, FaJs, FaJava, FaGithub, FaLinkedin, FaWhatsapp, FaTelegram } from 'react-icons/fa';
+import { FaReact, FaHtml5, FaCss3Alt, FaJs, FaJava, FaGithub, FaLinkedin } from 'react-icons/fa';
 import { TbBrandReactNative } from 'react-icons/tb';
+import { FaLinkedinIn } from 'react-icons/fa6';
 
 const Hero = () => {
   const containerVariants = {
@@ -30,7 +31,9 @@ const Hero = () => {
     { icon: <FaHtml5 />, style: { top: '30%', right: '15%' } },
     { icon: <FaCss3Alt />, style: { top: '70%', right: '10%' } },
     { icon: <TbBrandReactNative />, style: { top: '40%', left: '20%' } },
-    { icon: <FaJava />, style: { top: '50%', right: '20%' } },
+    { icon: <FaJava />, style: { top: '30%', right: '35%' } },
+    { icon: <FaGithub/>, style: { top: '10%', right: '40%' } },
+    { icon: <FaLinkedinIn />, style: { top: '50%', right: '20%' } },
   ];
 
   return (

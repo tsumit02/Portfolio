@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FaReact, FaHtml5, FaCss3Alt, FaJs, FaJava } from 'react-icons/fa';
+import { FaReact, FaHtml5, FaCss3Alt, FaJs, FaJava, FaGithub, FaNodeJs, FaDatabase , FaCode} from 'react-icons/fa';
 import { TbBrandReactNative } from 'react-icons/tb';
 
 const Skills = () => {
@@ -13,13 +13,13 @@ const Skills = () => {
     ],
     Backend: [
       { name: 'Java', icon: <FaJava /> },
-      { name: 'Node.js', icon: null },
+      { name: 'Node.js', icon:<FaNodeJs/> },
       { name: 'Express.js', icon: null }
     ],
     Tools: [
-      { name: 'Git', icon: null },
-      { name: 'VS Code', icon: null },
-      { name: 'Firebase', icon: null }
+      { name: 'GitHub', icon: <FaGithub/> },
+      { name: 'VS Code', icon: <FaCode/> },
+      { name: 'MongoDB', icon: <FaDatabase/> }
     ]
   };
 
